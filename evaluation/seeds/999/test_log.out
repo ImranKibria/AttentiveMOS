@@ -1,0 +1,241 @@
+2026-07-21 03:27:10.164200: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-21 03:27:10.181223: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-21 03:27:10.199478: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-21 03:27:10.205051: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-21 03:27:10.218769: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-07-21 03:27:11.602482: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-07-21 03:27:16.205080: I tensorflow/core/common_runtime/gpu/gpu_device.cc:2021] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31132 MB memory:  -> device: 0, name: Tesla V100S-PCIE-32GB, pci bus id: 0000:d8:00.0, compute capability: 7.0
+
+Seed value: 999
+Checkpoint directory: checkpoints/seeds/999/
+Evaluation directory: evaluation/seeds/999/
+max_len: 196608
+padding: replay
+K: 6
+tot_frames: [12288, 4096, 2048, 1024, 512, 256, 128]
+frame_size: 32
+frame_step: 16
+context_size: [8, 4, 4, 4, 2, 2, 2]
+merge_size: [0, 3, 2, 2, 2, 2, 2]
+interm_dim: 64
+num_heads: 4
+embed_dim: 16
+M: 12
+global_embed_dim: 16
+head_units: [16, 16]
+lr: 0.0003
+weight_decay: 0
+global_clipnorm: 1.0
+topK: 5
+epochs: 750
+patience: 25
+batch_size: 512
+GPU information: [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+
+Loading validation sets...
+Loaded bvcc_val
+Loaded somos_val
+Loaded singmos_val
+Loaded nisqa_val
+Loaded tmhintqi_val
+Loaded pstn_val
+Loaded tencent_val
+
+Loading test sets...
+tfds.core.DatasetInfo(
+    name='benchmark',
+    full_name='benchmark/1.0.0',
+    description="""
+    TODO(benchmark): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/benchmark',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/benchmark/benchmark/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=4.23 GiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'mos'),
+    disable_shuffling=False,
+    splits={
+        'bc19_test': <SplitInfo num_examples=540, num_shards=4>,
+        'bvcc_test': <SplitInfo num_examples=1066, num_shards=4>,
+        'nisqa_FOR': <SplitInfo num_examples=240, num_shards=1>,
+        'nisqa_LIVETALK': <SplitInfo num_examples=232, num_shards=2>,
+        'nisqa_P501': <SplitInfo num_examples=240, num_shards=1>,
+        'singmos_test': <SplitInfo num_examples=645, num_shards=2>,
+        'somos_test': <SplitInfo num_examples=3000, num_shards=8>,
+        'tmhintqi_test': <SplitInfo num_examples=1978, num_shards=4>,
+        'vmc23_track1a_test': <SplitInfo num_examples=882, num_shards=2>,
+        'vmc23_track1b_test': <SplitInfo num_examples=578, num_shards=1>,
+        'vmc23_track2_test': <SplitInfo num_examples=4040, num_shards=16>,
+        'vmc23_track3_test': <SplitInfo num_examples=1960, num_shards=4>,
+    },
+    citation="""// TODO(benchmark): BibTeX citation""",
+)
+
+Loading best model checkpoint...
+Model: "functional"
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)        ┃ Output Shape      ┃    Param # ┃ Connected to      ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ input_layer         │ (None, 196608)    │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ wave_framing        │ (None, 12288, 32) │          0 │ input_layer[0][0] │
+│ (Lambda)            │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ linear_embedding    │ (None, 12288, 16) │        528 │ wave_framing[0][… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_0              │ (None, 12288, 16) │      6,560 │ linear_embedding… │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_1            │ (None, 4096, 16)  │          0 │ swin_0[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_1              │ (None, 4096, 16)  │      6,560 │ merger_1[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_2            │ (None, 2048, 16)  │          0 │ swin_1[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_2              │ (None, 2048, 16)  │      6,560 │ merger_2[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_3            │ (None, 1024, 16)  │          0 │ swin_2[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_3              │ (None, 1024, 16)  │      6,560 │ merger_3[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_4            │ (None, 512, 16)   │          0 │ swin_3[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_4              │ (None, 512, 16)   │      6,560 │ merger_4[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_5            │ (None, 256, 16)   │          0 │ swin_4[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_5              │ (None, 256, 16)   │      6,560 │ merger_5[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_6            │ (None, 128, 16)   │          0 │ swin_5[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_6              │ (None, 128, 16)   │      6,560 │ merger_6[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ broadcast_layer     │ (None, 1, 16)     │          0 │ swin_6[0][0]      │
+│ (Lambda)            │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concat_embeddings   │ (None, 129, 16)   │          0 │ broadcast_layer[… │
+│ (Concatenate)       │                   │            │ swin_6[0][0]      │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ concat_embedding… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ get_item (GetItem)  │ (None, 16)        │          0 │ global_transform… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ label_head          │ (None, 1)         │        561 │ get_item[0][0]    │
+│ (Head_Block)        │                   │            │                   │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+ Total params: 86,369 (337.38 KB)
+ Trainable params: 86,369 (337.38 KB)
+ Non-trainable params: 0 (0.00 B)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1784618844.654540 2374069 service.cc:146] XLA service 0x14fa7c014380 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1784618844.654606 2374069 service.cc:154]   StreamExecutor device (0): Tesla V100S-PCIE-32GB, Compute Capability 7.0
+2026-07-21 03:27:24.888502: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:268] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2026-07-21 03:27:25.436502: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:531] Loaded cuDNN version 8907
+I0000 00:00:1784618850.248042 2374069 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2026-07-21 03:28:34.683812: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-07-21 03:31:39.141256: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-07-21 03:34:59.612871: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-07-21 03:44:41.728844: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-07-21 03:52:47.841424: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+None
+
+Computing metrics and plotting results...
+Evaluation set:  bvcc_val
+[UTT][ MSE = 1.135 | LCC = 0.491 | SRCC = 0.477 | KTAU = 0.338 ] [SYS][ MSE = 1.010 | LCC = 0.644 | SRCC = 0.638  | KTAU = 0.459 ]
+Evaluation set:  somos_val
+[UTT][ MSE = 0.513 | LCC = 0.280 | SRCC = 0.273 | KTAU = 0.186 ] [SYS][ MSE = 0.288 | LCC = 0.596 | SRCC = 0.599  | KTAU = 0.422 ]
+Evaluation set:  singmos_val
+[UTT][ MSE = 0.670 | LCC = 0.246 | SRCC = 0.209 | KTAU = 0.151 ] [SYS][ MSE = 0.247 | LCC = 0.365 | SRCC = 0.358  | KTAU = 0.235 ]
+Evaluation set:  nisqa_val
+[UTT][ MSE = 0.650 | LCC = 0.729 | SRCC = 0.729 | KTAU = 0.541 ] [SYS][ MSE = 0.639 | LCC = 0.725 | SRCC = 0.721  | KTAU = 0.534 ]
+Evaluation set:  tmhintqi_val
+[UTT][ MSE = 1.362 | LCC = 0.440 | SRCC = 0.406 | KTAU = 0.303 ] [SYS][ MSE = 0.348 | LCC = 0.708 | SRCC = 0.654  | KTAU = 0.476 ]
+Evaluation set:  pstn_val
+[UTT][ MSE = 0.372 | LCC = 0.732 | SRCC = 0.734 | KTAU = 0.548 ] [SYS][ MSE = 0.372 | LCC = 0.732 | SRCC = 0.734  | KTAU = 0.548 ]
+Evaluation set:  tencent_val
+[UTT][ MSE = 0.261 | LCC = 0.904 | SRCC = 0.901 | KTAU = 0.727 ] [SYS][ MSE = 0.261 | LCC = 0.904 | SRCC = 0.901  | KTAU = 0.727 ]
+Evaluation set:  bvcc_test
+[UTT][ MSE = 0.932 | LCC = 0.552 | SRCC = 0.547 | KTAU = 0.386 ] [SYS][ MSE = 0.587 | LCC = 0.692 | SRCC = 0.680  | KTAU = 0.507 ]
+Evaluation set:  somos_test
+[UTT][ MSE = 0.518 | LCC = 0.282 | SRCC = 0.272 | KTAU = 0.186 ] [SYS][ MSE = 0.314 | LCC = 0.526 | SRCC = 0.540  | KTAU = 0.377 ]
+Evaluation set:  singmos_test
+[UTT][ MSE = 0.810 | LCC = 0.116 | SRCC = 0.109 | KTAU = 0.075 ] [SYS][ MSE = 0.276 | LCC = 0.107 | SRCC = 0.096  | KTAU = 0.082 ]
+Evaluation set:  nisqa_FOR
+[UTT][ MSE = 1.007 | LCC = 0.577 | SRCC = 0.610 | KTAU = 0.434 ] [SYS][ MSE = 0.835 | LCC = 0.656 | SRCC = 0.658  | KTAU = 0.482 ]
+Evaluation set:  nisqa_LIVETALK
+[UTT][ MSE = 0.884 | LCC = 0.448 | SRCC = 0.463 | KTAU = 0.327 ] [SYS][ MSE = 0.419 | LCC = 0.636 | SRCC = 0.608  | KTAU = 0.474 ]
+Evaluation set:  nisqa_P501
+[UTT][ MSE = 1.095 | LCC = 0.604 | SRCC = 0.631 | KTAU = 0.449 ] [SYS][ MSE = 0.896 | LCC = 0.701 | SRCC = 0.792  | KTAU = 0.583 ]
+Evaluation set:  tmhintqi_test
+[UTT][ MSE = 0.875 | LCC = 0.605 | SRCC = 0.548 | KTAU = 0.402 ] [SYS][ MSE = 0.355 | LCC = 0.674 | SRCC = 0.647  | KTAU = 0.465 ]
+Evaluation set:  bc19_test
+[UTT][ MSE = 0.925 | LCC = 0.409 | SRCC = 0.453 | KTAU = 0.304 ] [SYS][ MSE = 0.598 | LCC = 0.574 | SRCC = 0.584  | KTAU = 0.360 ]
+Evaluation set:  vmc23_track1a_test
+[UTT][ MSE = 0.972 | LCC = -0.060 | SRCC = -0.066 | KTAU = -0.044 ] [SYS][ MSE = 0.632 | LCC = -0.060 | SRCC = 0.062  | KTAU = 0.019 ]
+Evaluation set:  vmc23_track1b_test
+[UTT][ MSE = 0.844 | LCC = 0.000 | SRCC = -0.037 | KTAU = -0.024 ] [SYS][ MSE = 0.592 | LCC = 0.004 | SRCC = 0.201  | KTAU = 0.132 ]
+Evaluation set:  vmc23_track2_test
+[UTT][ MSE = 2.490 | LCC = 0.282 | SRCC = 0.250 | KTAU = 0.171 ] [SYS][ MSE = 2.015 | LCC = 0.519 | SRCC = 0.379  | KTAU = 0.259 ]
+Evaluation set:  vmc23_track3_test
+[UTT][ MSE = 0.830 | LCC = 0.468 | SRCC = 0.462 | KTAU = 0.325 ] [SYS][ MSE = 0.301 | LCC = 0.604 | SRCC = 0.626  | KTAU = 0.470 ]

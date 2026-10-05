@@ -1,0 +1,964 @@
+2026-06-24 12:52:02.540415: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-06-24 12:52:02.559312: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-06-24 12:52:02.565067: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-06-24 12:52:02.579245: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-24 12:52:03.883088: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-06-24 12:52:09.301817: I tensorflow/core/common_runtime/gpu/gpu_device.cc:2021] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38480 MB memory:  -> device: 0, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:81:00.0, compute capability: 8.0
+Hyperparameters: 
+{'max_len': 196608, 'K': 6, 'tot_frames': [12288, 4096, 2048, 1024, 512, 256, 128], 'frame_size': 32, 'frame_step': 16, 'context_size': [8, 4, 4, 4, 2, 2, 2], 'merge_size': [0, 3, 2, 2, 2, 2, 2], 'interm_dim': 64, 'num_heads': 4, 'embed_dim': 16, 'M': 12, 'global_embed_dim': 16, 'head_units': [16, 16], 'lr': 0.0005, 'weight_decay': 0, 'global_clipnorm': 1.0, 'epochs': 750, 'batch_size': 512}
+
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+Loaded bvcc info:
+tfds.core.DatasetInfo(
+    name='bvcc',
+    full_name='bvcc/1.0.0',
+    description="""
+    TODO(bvcc): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/bvcc',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/bvcc/tf_version/bvcc/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=1.72 GiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'std': Scalar(shape=(), dtype=float32),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'score'),
+    disable_shuffling=False,
+    splits={
+        'dev': <SplitInfo num_examples=1066, num_shards=4>,
+        'test': <SplitInfo num_examples=1066, num_shards=4>,
+        'train': <SplitInfo num_examples=4973, num_shards=16>,
+    },
+    citation="""// TODO(bvcc): BibTeX citation""",
+)
+Loaded somos info:
+tfds.core.DatasetInfo(
+    name='somos',
+    full_name='somos/1.0.0',
+    description="""
+    TODO(somos): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/somos',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/somos/tf_version/somos/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=5.62 GiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'std': Scalar(shape=(), dtype=float32),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'score'),
+    disable_shuffling=False,
+    splits={
+        'dev': <SplitInfo num_examples=3000, num_shards=8>,
+        'test': <SplitInfo num_examples=3000, num_shards=8>,
+        'train': <SplitInfo num_examples=14100, num_shards=32>,
+    },
+    citation="""// TODO(somos): BibTeX citation""",
+)
+Loaded singmos info:
+tfds.core.DatasetInfo(
+    name='singmos',
+    full_name='singmos/1.0.0',
+    description="""
+    TODO(singmos): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/singmos',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/singmos/tf_version/singmos/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=867.34 MiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'std': Scalar(shape=(), dtype=float32),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'score'),
+    disable_shuffling=False,
+    splits={
+        'dev': <SplitInfo num_examples=544, num_shards=2>,
+        'test': <SplitInfo num_examples=645, num_shards=2>,
+        'train': <SplitInfo num_examples=2000, num_shards=8>,
+    },
+    citation="""// TODO(singmos): BibTeX citation""",
+)
+Loaded nisqa info:
+tfds.core.DatasetInfo(
+    name='nisqa',
+    full_name='nisqa/1.0.0',
+    description="""
+    TODO(nisqa): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/nisqa',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/nisqa/tf_version/nisqa/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=7.60 GiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'std': Scalar(shape=(), dtype=float32),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'score'),
+    disable_shuffling=False,
+    splits={
+        'FOR': <SplitInfo num_examples=240, num_shards=1>,
+        'LIVETALK': <SplitInfo num_examples=232, num_shards=2>,
+        'P501': <SplitInfo num_examples=240, num_shards=1>,
+        'dev': <SplitInfo num_examples=2700, num_shards=16>,
+        'train': <SplitInfo num_examples=11020, num_shards=64>,
+    },
+    citation="""// TODO(nisqa): BibTeX citation""",
+)
+Loaded tmhintqi info:
+tfds.core.DatasetInfo(
+    name='tmhintqi',
+    full_name='tmhintqi/1.0.0',
+    description="""
+    TODO(tmhintqi): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/tmhintqi',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/tmhintqi/tf_version/tmhintqi/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=2.81 GiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'std': Scalar(shape=(), dtype=float32),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'score'),
+    disable_shuffling=False,
+    splits={
+        'dev': <SplitInfo num_examples=1293, num_shards=2>,
+        'test': <SplitInfo num_examples=1978, num_shards=4>,
+        'train': <SplitInfo num_examples=11644, num_shards=32>,
+    },
+    citation="""// TODO(tmhintqi): BibTeX citation""",
+)
+Loaded pstn info:
+tfds.core.DatasetInfo(
+    name='pstn',
+    full_name='pstn/1.0.0',
+    description="""
+    TODO(pstn): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/pstn',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/pstn/tf_version/pstn/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=35.01 GiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'std': Scalar(shape=(), dtype=float32),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'score'),
+    disable_shuffling=False,
+    splits={
+        'dev': <SplitInfo num_examples=5870, num_shards=32>,
+        'train': <SplitInfo num_examples=52839, num_shards=256>,
+    },
+    citation="""// TODO(pstn): BibTeX citation""",
+)
+Loaded tencent info:
+tfds.core.DatasetInfo(
+    name='tencent',
+    full_name='tencent/1.0.0',
+    description="""
+    TODO(tencent): Markdown description of that will appear on the catalog page.
+    Description is **formatted** as markdown.
+    
+    It should also contain any processing which has been applied (if any),
+    (e.g. corrupted example skipped, images cropped,...):
+    """,
+    homepage='https://www.tensorflow.org/datasets/catalog/tencent',
+    data_dir='/fs/ess/PAS2301/Data/Speech/MOS_datasets/tencent/tf_version/tencent/1.0.0',
+    file_format=tfrecord,
+    download_size=Unknown size,
+    dataset_size=5.06 GiB,
+    features=FeaturesDict({
+        'mos': Scalar(shape=(), dtype=float32),
+        'sample_id': Scalar(shape=(), dtype=string),
+        'std': Scalar(shape=(), dtype=float32),
+        'system_id': Scalar(shape=(), dtype=string),
+        'utterance': Tensor(shape=(None,), dtype=float32),
+        'wav_path': Scalar(shape=(), dtype=string),
+    }),
+    supervised_keys=('utterance', 'score'),
+    disable_shuffling=False,
+    splits={
+        'dev': <SplitInfo num_examples=1155, num_shards=8>,
+        'train': <SplitInfo num_examples=10408, num_shards=64>,
+    },
+    citation="""// TODO(tencent): BibTeX citation""",
+)
+Final merged datasets:
+Training examples: 106984
+Validation examples: 15628
+Model: "functional"
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)        ┃ Output Shape      ┃    Param # ┃ Connected to      ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ input_layer         │ (None, 196608)    │          0 │ -                 │
+│ (InputLayer)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ wave_framing        │ (None, 12288, 32) │          0 │ input_layer[0][0] │
+│ (Lambda)            │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ linear_embedding    │ (None, 12288, 16) │        528 │ wave_framing[0][… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_0              │ (None, 12288, 16) │      6,560 │ linear_embedding… │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_1            │ (None, 4096, 16)  │          0 │ swin_0[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_1              │ (None, 4096, 16)  │      6,560 │ merger_1[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_2            │ (None, 2048, 16)  │          0 │ swin_1[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_2              │ (None, 2048, 16)  │      6,560 │ merger_2[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_3            │ (None, 1024, 16)  │          0 │ swin_2[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_3              │ (None, 1024, 16)  │      6,560 │ merger_3[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_4            │ (None, 512, 16)   │          0 │ swin_3[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_4              │ (None, 512, 16)   │      6,560 │ merger_4[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_5            │ (None, 256, 16)   │          0 │ swin_4[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_5              │ (None, 256, 16)   │      6,560 │ merger_5[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ merger_6            │ (None, 128, 16)   │          0 │ swin_5[0][0]      │
+│ (MaxPooling1D)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ swin_6              │ (None, 128, 16)   │      6,560 │ merger_6[0][0]    │
+│ (SwinTransformer)   │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ broadcast_layer     │ (None, 1, 16)     │          0 │ swin_6[0][0]      │
+│ (Lambda)            │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ concat_embeddings   │ (None, 129, 16)   │          0 │ broadcast_layer[… │
+│ (Concatenate)       │                   │            │ swin_6[0][0]      │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ concat_embedding… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_transformer… │ (None, 129, 16)   │      3,280 │ global_transform… │
+│ (StandardTransform… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ get_item (GetItem)  │ (None, 16)        │          0 │ global_transform… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ label_head          │ (None, 1)         │        561 │ get_item[0][0]    │
+│ (Head_Block)        │                   │            │                   │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+ Total params: 86,369 (337.38 KB)
+ Trainable params: 86,369 (337.38 KB)
+ Non-trainable params: 0 (0.00 B)
+None
+Epoch 1/750
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1782319978.887560  193702 service.cc:146] XLA service 0x14c6d8033400 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1782319978.887684  193702 service.cc:154]   StreamExecutor device (0): NVIDIA A100-PCIE-40GB, Compute Capability 8.0
+2026-06-24 12:53:00.812907: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:268] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2026-06-24 12:53:05.938700: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:531] Loaded cuDNN version 8907
+2026-06-24 12:53:11.220899: I external/local_xla/xla/stream_executor/cuda/cuda_asm_compiler.cc:393] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_1217', 4 bytes spill stores, 4 bytes spill loads
+
+2026-06-24 12:53:11.655846: I external/local_xla/xla/stream_executor/cuda/cuda_asm_compiler.cc:393] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_1243', 468 bytes spill stores, 468 bytes spill loads
+
+2026-06-24 12:53:12.338268: I external/local_xla/xla/stream_executor/cuda/cuda_asm_compiler.cc:393] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_1243', 776 bytes spill stores, 780 bytes spill loads
+
+2026-06-24 12:53:12.762507: I external/local_xla/xla/stream_executor/cuda/cuda_asm_compiler.cc:393] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_1243', 276 bytes spill stores, 280 bytes spill loads
+
+2026-06-24 12:53:13.515520: I external/local_xla/xla/stream_executor/cuda/cuda_asm_compiler.cc:393] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_1244', 80 bytes spill stores, 80 bytes spill loads
+
+2026-06-24 12:53:40.874126: I external/local_xla/xla/stream_executor/cuda/cuda_asm_compiler.cc:393] ptxas warning : Registers are spilled to local memory in function 'input_add_reduce_fusion_280', 8 bytes spill stores, 8 bytes spill loads
+
+I0000 00:00:1782320021.333387  193702 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2026-06-24 12:55:24.379500: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.2040
+208/208 - 190s - 913ms/step - loss: 498.0980 - rmse: 0.9863 - val_loss: 512.9170 - val_rmse: 1.0009 - val_srcc: 0.2040
+Epoch 2/750
+2026-06-24 12:57:05.765222: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.1727
+208/208 - 101s - 484ms/step - loss: 434.0836 - rmse: 0.9208 - val_loss: 662.7002 - val_rmse: 1.1377 - val_srcc: 0.1727
+Epoch 3/750
+Validation SRCC: 0.1746
+208/208 - 93s - 446ms/step - loss: 434.4278 - rmse: 0.9211 - val_loss: 1081.1368 - val_rmse: 1.4531 - val_srcc: 0.1746
+Epoch 4/750
+2026-06-24 13:00:09.339256: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.2756
+208/208 - 92s - 440ms/step - loss: 436.4025 - rmse: 0.9232 - val_loss: 429.2148 - val_rmse: 0.9156 - val_srcc: 0.2756
+Epoch 5/750
+Validation SRCC: 0.3082
+208/208 - 92s - 442ms/step - loss: 389.5357 - rmse: 0.8722 - val_loss: 402.4731 - val_rmse: 0.8866 - val_srcc: 0.3082
+Epoch 6/750
+Validation SRCC: 0.2911
+208/208 - 91s - 438ms/step - loss: 409.8664 - rmse: 0.8947 - val_loss: 427.3958 - val_rmse: 0.9137 - val_srcc: 0.2911
+Epoch 7/750
+Validation SRCC: 0.2984
+208/208 - 93s - 447ms/step - loss: 411.0735 - rmse: 0.8960 - val_loss: 416.7661 - val_rmse: 0.9022 - val_srcc: 0.2984
+Epoch 8/750
+2026-06-24 13:06:19.502203: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.2876
+208/208 - 93s - 449ms/step - loss: 396.4135 - rmse: 0.8799 - val_loss: 441.1085 - val_rmse: 0.9282 - val_srcc: 0.2876
+Epoch 9/750
+Validation SRCC: 0.3484
+208/208 - 92s - 442ms/step - loss: 381.5209 - rmse: 0.8632 - val_loss: 413.1637 - val_rmse: 0.8983 - val_srcc: 0.3484
+Epoch 10/750
+Validation SRCC: 0.3536
+208/208 - 91s - 439ms/step - loss: 380.2328 - rmse: 0.8618 - val_loss: 421.4032 - val_rmse: 0.9072 - val_srcc: 0.3536
+Epoch 11/750
+Validation SRCC: 0.3543
+208/208 - 92s - 442ms/step - loss: 375.9304 - rmse: 0.8569 - val_loss: 460.8977 - val_rmse: 0.9488 - val_srcc: 0.3543
+Epoch 12/750
+Validation SRCC: 0.3807
+208/208 - 92s - 441ms/step - loss: 380.1052 - rmse: 0.8616 - val_loss: 416.8513 - val_rmse: 0.9023 - val_srcc: 0.3807
+Epoch 13/750
+Validation SRCC: 0.3966
+208/208 - 92s - 441ms/step - loss: 373.6244 - rmse: 0.8542 - val_loss: 415.8909 - val_rmse: 0.9013 - val_srcc: 0.3966
+Epoch 14/750
+Validation SRCC: 0.4092
+208/208 - 93s - 447ms/step - loss: 362.6424 - rmse: 0.8416 - val_loss: 389.6208 - val_rmse: 0.8723 - val_srcc: 0.4092
+Epoch 15/750
+Validation SRCC: 0.3784
+208/208 - 91s - 438ms/step - loss: 362.1744 - rmse: 0.8411 - val_loss: 448.6270 - val_rmse: 0.9361 - val_srcc: 0.3784
+Epoch 16/750
+2026-06-24 13:18:34.470365: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.3945
+208/208 - 95s - 455ms/step - loss: 360.5375 - rmse: 0.8392 - val_loss: 416.3210 - val_rmse: 0.9017 - val_srcc: 0.3945
+Epoch 17/750
+Validation SRCC: 0.4295
+208/208 - 140s - 674ms/step - loss: 353.5782 - rmse: 0.8310 - val_loss: 393.0580 - val_rmse: 0.8762 - val_srcc: 0.4295
+Epoch 18/750
+Validation SRCC: 0.4155
+208/208 - 91s - 437ms/step - loss: 348.7404 - rmse: 0.8253 - val_loss: 422.7328 - val_rmse: 0.9087 - val_srcc: 0.4155
+Epoch 19/750
+Validation SRCC: 0.4371
+208/208 - 93s - 446ms/step - loss: 349.0464 - rmse: 0.8257 - val_loss: 377.5070 - val_rmse: 0.8587 - val_srcc: 0.4371
+Epoch 20/750
+Validation SRCC: 0.4273
+208/208 - 94s - 452ms/step - loss: 343.9163 - rmse: 0.8196 - val_loss: 408.7174 - val_rmse: 0.8935 - val_srcc: 0.4273
+Epoch 21/750
+Validation SRCC: 0.4339
+208/208 - 93s - 446ms/step - loss: 346.1900 - rmse: 0.8223 - val_loss: 455.8051 - val_rmse: 0.9435 - val_srcc: 0.4339
+Epoch 22/750
+Validation SRCC: 0.4479
+208/208 - 92s - 444ms/step - loss: 357.3726 - rmse: 0.8355 - val_loss: 409.0723 - val_rmse: 0.8939 - val_srcc: 0.4479
+Epoch 23/750
+Validation SRCC: 0.4594
+208/208 - 93s - 446ms/step - loss: 336.9143 - rmse: 0.8112 - val_loss: 365.0672 - val_rmse: 0.8444 - val_srcc: 0.4594
+Epoch 24/750
+Validation SRCC: 0.4556
+208/208 - 92s - 443ms/step - loss: 335.0477 - rmse: 0.8089 - val_loss: 369.5627 - val_rmse: 0.8496 - val_srcc: 0.4556
+Epoch 25/750
+Validation SRCC: 0.4487
+208/208 - 91s - 439ms/step - loss: 349.1882 - rmse: 0.8258 - val_loss: 418.1002 - val_rmse: 0.9037 - val_srcc: 0.4487
+Epoch 26/750
+Validation SRCC: 0.4636
+208/208 - 92s - 444ms/step - loss: 343.1230 - rmse: 0.8186 - val_loss: 403.8583 - val_rmse: 0.8881 - val_srcc: 0.4636
+Epoch 27/750
+Validation SRCC: 0.4581
+208/208 - 91s - 437ms/step - loss: 336.2116 - rmse: 0.8103 - val_loss: 405.9321 - val_rmse: 0.8904 - val_srcc: 0.4581
+Epoch 28/750
+Validation SRCC: 0.4689
+208/208 - 95s - 458ms/step - loss: 323.3504 - rmse: 0.7947 - val_loss: 369.3091 - val_rmse: 0.8493 - val_srcc: 0.4689
+Epoch 29/750
+Validation SRCC: 0.4545
+208/208 - 92s - 444ms/step - loss: 318.5481 - rmse: 0.7888 - val_loss: 385.0824 - val_rmse: 0.8672 - val_srcc: 0.4545
+Epoch 30/750
+Validation SRCC: 0.4787
+208/208 - 95s - 455ms/step - loss: 316.4603 - rmse: 0.7862 - val_loss: 382.6516 - val_rmse: 0.8645 - val_srcc: 0.4787
+Epoch 31/750
+Validation SRCC: 0.4685
+208/208 - 92s - 443ms/step - loss: 316.2691 - rmse: 0.7859 - val_loss: 394.2907 - val_rmse: 0.8776 - val_srcc: 0.4685
+Epoch 32/750
+2026-06-24 13:44:54.496365: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.4917
+208/208 - 142s - 680ms/step - loss: 306.0692 - rmse: 0.7732 - val_loss: 361.4113 - val_rmse: 0.8402 - val_srcc: 0.4917
+Epoch 33/750
+Validation SRCC: 0.4803
+208/208 - 91s - 438ms/step - loss: 325.0134 - rmse: 0.7967 - val_loss: 357.7515 - val_rmse: 0.8359 - val_srcc: 0.4803
+Epoch 34/750
+Validation SRCC: 0.4851
+208/208 - 93s - 446ms/step - loss: 311.0330 - rmse: 0.7794 - val_loss: 362.3635 - val_rmse: 0.8413 - val_srcc: 0.4851
+Epoch 35/750
+Validation SRCC: 0.5008
+208/208 - 94s - 453ms/step - loss: 298.6848 - rmse: 0.7638 - val_loss: 354.1433 - val_rmse: 0.8317 - val_srcc: 0.5008
+Epoch 36/750
+Validation SRCC: 0.4961
+208/208 - 94s - 452ms/step - loss: 294.3095 - rmse: 0.7582 - val_loss: 345.7038 - val_rmse: 0.8217 - val_srcc: 0.4961
+Epoch 37/750
+Validation SRCC: 0.4940
+208/208 - 91s - 436ms/step - loss: 299.1616 - rmse: 0.7644 - val_loss: 352.7024 - val_rmse: 0.8300 - val_srcc: 0.4940
+Epoch 38/750
+Validation SRCC: 0.4864
+208/208 - 144s - 690ms/step - loss: 291.5099 - rmse: 0.7546 - val_loss: 383.4908 - val_rmse: 0.8655 - val_srcc: 0.4864
+Epoch 39/750
+Validation SRCC: 0.4856
+208/208 - 91s - 438ms/step - loss: 311.8035 - rmse: 0.7804 - val_loss: 370.3559 - val_rmse: 0.8505 - val_srcc: 0.4856
+Epoch 40/750
+Validation SRCC: 0.4946
+208/208 - 91s - 439ms/step - loss: 293.7637 - rmse: 0.7575 - val_loss: 421.5750 - val_rmse: 0.9074 - val_srcc: 0.4946
+Epoch 41/750
+Validation SRCC: 0.4876
+208/208 - 91s - 438ms/step - loss: 293.9484 - rmse: 0.7577 - val_loss: 372.6694 - val_rmse: 0.8532 - val_srcc: 0.4876
+Epoch 42/750
+Validation SRCC: 0.5073
+208/208 - 92s - 444ms/step - loss: 289.1011 - rmse: 0.7514 - val_loss: 365.4016 - val_rmse: 0.8448 - val_srcc: 0.5073
+Epoch 43/750
+Validation SRCC: 0.5016
+208/208 - 94s - 452ms/step - loss: 282.0412 - rmse: 0.7422 - val_loss: 395.3115 - val_rmse: 0.8787 - val_srcc: 0.5016
+Epoch 44/750
+Validation SRCC: 0.4904
+208/208 - 91s - 437ms/step - loss: 286.7097 - rmse: 0.7483 - val_loss: 406.8697 - val_rmse: 0.8914 - val_srcc: 0.4904
+Epoch 45/750
+Validation SRCC: 0.5058
+208/208 - 94s - 452ms/step - loss: 286.6501 - rmse: 0.7482 - val_loss: 393.3228 - val_rmse: 0.8765 - val_srcc: 0.5058
+Epoch 46/750
+Validation SRCC: 0.5125
+208/208 - 93s - 447ms/step - loss: 284.3997 - rmse: 0.7453 - val_loss: 405.6325 - val_rmse: 0.8901 - val_srcc: 0.5125
+Epoch 47/750
+Validation SRCC: 0.5107
+208/208 - 90s - 434ms/step - loss: 291.4833 - rmse: 0.7545 - val_loss: 348.3891 - val_rmse: 0.8249 - val_srcc: 0.5107
+Epoch 48/750
+Validation SRCC: 0.5009
+208/208 - 94s - 450ms/step - loss: 282.2020 - rmse: 0.7424 - val_loss: 372.5546 - val_rmse: 0.8530 - val_srcc: 0.5009
+Epoch 49/750
+Validation SRCC: 0.5042
+208/208 - 95s - 455ms/step - loss: 273.0492 - rmse: 0.7303 - val_loss: 398.2990 - val_rmse: 0.8820 - val_srcc: 0.5042
+Epoch 50/750
+Validation SRCC: 0.5046
+208/208 - 91s - 439ms/step - loss: 278.6322 - rmse: 0.7377 - val_loss: 347.9065 - val_rmse: 0.8243 - val_srcc: 0.5046
+Epoch 51/750
+Validation SRCC: 0.5054
+208/208 - 92s - 441ms/step - loss: 269.1393 - rmse: 0.7250 - val_loss: 366.6906 - val_rmse: 0.8463 - val_srcc: 0.5054
+Epoch 52/750
+Validation SRCC: 0.5111
+208/208 - 92s - 441ms/step - loss: 274.3285 - rmse: 0.7320 - val_loss: 358.7964 - val_rmse: 0.8371 - val_srcc: 0.5111
+Epoch 53/750
+Validation SRCC: 0.5065
+208/208 - 92s - 442ms/step - loss: 271.9998 - rmse: 0.7289 - val_loss: 339.3664 - val_rmse: 0.8141 - val_srcc: 0.5065
+Epoch 54/750
+Validation SRCC: 0.5062
+208/208 - 91s - 439ms/step - loss: 267.7503 - rmse: 0.7232 - val_loss: 354.8743 - val_rmse: 0.8325 - val_srcc: 0.5062
+Epoch 55/750
+Validation SRCC: 0.5160
+208/208 - 92s - 441ms/step - loss: 266.9410 - rmse: 0.7221 - val_loss: 362.9196 - val_rmse: 0.8419 - val_srcc: 0.5160
+Epoch 56/750
+Validation SRCC: 0.5049
+208/208 - 88s - 424ms/step - loss: 274.8977 - rmse: 0.7327 - val_loss: 399.1743 - val_rmse: 0.8830 - val_srcc: 0.5049
+Epoch 57/750
+Validation SRCC: 0.5093
+208/208 - 91s - 437ms/step - loss: 266.7704 - rmse: 0.7218 - val_loss: 397.6428 - val_rmse: 0.8813 - val_srcc: 0.5093
+Epoch 58/750
+Validation SRCC: 0.5185
+208/208 - 94s - 450ms/step - loss: 272.6873 - rmse: 0.7298 - val_loss: 348.5766 - val_rmse: 0.8251 - val_srcc: 0.5185
+Epoch 59/750
+Validation SRCC: 0.5104
+208/208 - 91s - 438ms/step - loss: 262.2998 - rmse: 0.7158 - val_loss: 361.3893 - val_rmse: 0.8401 - val_srcc: 0.5104
+Epoch 60/750
+Validation SRCC: 0.4988
+208/208 - 91s - 437ms/step - loss: 265.8859 - rmse: 0.7206 - val_loss: 399.1477 - val_rmse: 0.8829 - val_srcc: 0.4988
+Epoch 61/750
+Validation SRCC: 0.5191
+208/208 - 92s - 441ms/step - loss: 266.8671 - rmse: 0.7220 - val_loss: 392.6333 - val_rmse: 0.8757 - val_srcc: 0.5191
+Epoch 62/750
+Validation SRCC: 0.5131
+208/208 - 92s - 441ms/step - loss: 266.4685 - rmse: 0.7214 - val_loss: 394.8428 - val_rmse: 0.8782 - val_srcc: 0.5131
+Epoch 63/750
+Validation SRCC: 0.5033
+208/208 - 91s - 438ms/step - loss: 265.2577 - rmse: 0.7198 - val_loss: 371.1509 - val_rmse: 0.8514 - val_srcc: 0.5033
+Epoch 64/750
+2026-06-24 14:34:48.814371: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.5144
+208/208 - 92s - 442ms/step - loss: 259.1725 - rmse: 0.7115 - val_loss: 352.2398 - val_rmse: 0.8294 - val_srcc: 0.5144
+Epoch 65/750
+Validation SRCC: 0.5276
+208/208 - 92s - 442ms/step - loss: 253.7769 - rmse: 0.7040 - val_loss: 359.8340 - val_rmse: 0.8383 - val_srcc: 0.5276
+Epoch 66/750
+Validation SRCC: 0.5195
+208/208 - 94s - 454ms/step - loss: 259.2332 - rmse: 0.7116 - val_loss: 372.3442 - val_rmse: 0.8528 - val_srcc: 0.5195
+Epoch 67/750
+Validation SRCC: 0.5222
+208/208 - 93s - 445ms/step - loss: 255.5596 - rmse: 0.7065 - val_loss: 352.2948 - val_rmse: 0.8295 - val_srcc: 0.5222
+Epoch 68/750
+Validation SRCC: 0.5299
+208/208 - 92s - 444ms/step - loss: 258.6092 - rmse: 0.7107 - val_loss: 351.4154 - val_rmse: 0.8285 - val_srcc: 0.5299
+Epoch 69/750
+Validation SRCC: 0.5252
+208/208 - 141s - 676ms/step - loss: 256.0359 - rmse: 0.7072 - val_loss: 357.9550 - val_rmse: 0.8361 - val_srcc: 0.5252
+Epoch 70/750
+Validation SRCC: 0.5133
+208/208 - 94s - 454ms/step - loss: 257.2486 - rmse: 0.7088 - val_loss: 377.3004 - val_rmse: 0.8584 - val_srcc: 0.5133
+Epoch 71/750
+Validation SRCC: 0.5304
+208/208 - 94s - 453ms/step - loss: 254.9016 - rmse: 0.7056 - val_loss: 356.5082 - val_rmse: 0.8344 - val_srcc: 0.5304
+Epoch 72/750
+Validation SRCC: 0.5280
+208/208 - 92s - 441ms/step - loss: 259.1082 - rmse: 0.7114 - val_loss: 333.7338 - val_rmse: 0.8074 - val_srcc: 0.5280
+Epoch 73/750
+Validation SRCC: 0.5258
+208/208 - 92s - 442ms/step - loss: 255.0111 - rmse: 0.7057 - val_loss: 351.5578 - val_rmse: 0.8286 - val_srcc: 0.5258
+Epoch 74/750
+Validation SRCC: 0.5404
+208/208 - 92s - 445ms/step - loss: 250.7445 - rmse: 0.6998 - val_loss: 327.8696 - val_rmse: 0.8002 - val_srcc: 0.5404
+Epoch 75/750
+Validation SRCC: 0.5348
+208/208 - 93s - 446ms/step - loss: 251.3679 - rmse: 0.7007 - val_loss: 367.5039 - val_rmse: 0.8472 - val_srcc: 0.5348
+Epoch 76/750
+Validation SRCC: 0.5432
+208/208 - 94s - 451ms/step - loss: 249.6289 - rmse: 0.6983 - val_loss: 336.9825 - val_rmse: 0.8113 - val_srcc: 0.5432
+Epoch 77/750
+Validation SRCC: 0.5397
+208/208 - 95s - 455ms/step - loss: 246.7238 - rmse: 0.6942 - val_loss: 337.1625 - val_rmse: 0.8115 - val_srcc: 0.5397
+Epoch 78/750
+Validation SRCC: 0.5458
+208/208 - 94s - 451ms/step - loss: 244.4700 - rmse: 0.6910 - val_loss: 341.1628 - val_rmse: 0.8163 - val_srcc: 0.5458
+Epoch 79/750
+Validation SRCC: 0.5384
+208/208 - 93s - 446ms/step - loss: 245.9744 - rmse: 0.6931 - val_loss: 355.4727 - val_rmse: 0.8332 - val_srcc: 0.5384
+Epoch 80/750
+Validation SRCC: 0.5312
+208/208 - 96s - 461ms/step - loss: 243.2009 - rmse: 0.6892 - val_loss: 357.6235 - val_rmse: 0.8358 - val_srcc: 0.5312
+Epoch 81/750
+Validation SRCC: 0.5394
+208/208 - 93s - 446ms/step - loss: 243.5018 - rmse: 0.6896 - val_loss: 351.5254 - val_rmse: 0.8286 - val_srcc: 0.5394
+Epoch 82/750
+Validation SRCC: 0.5389
+208/208 - 95s - 456ms/step - loss: 246.0718 - rmse: 0.6933 - val_loss: 343.2777 - val_rmse: 0.8188 - val_srcc: 0.5389
+Epoch 83/750
+Validation SRCC: 0.5402
+208/208 - 97s - 465ms/step - loss: 237.7664 - rmse: 0.6815 - val_loss: 351.8637 - val_rmse: 0.8290 - val_srcc: 0.5402
+Epoch 84/750
+Validation SRCC: 0.5381
+208/208 - 95s - 455ms/step - loss: 243.8591 - rmse: 0.6901 - val_loss: 330.5196 - val_rmse: 0.8035 - val_srcc: 0.5381
+Epoch 85/750
+Validation SRCC: 0.5418
+208/208 - 95s - 457ms/step - loss: 237.7547 - rmse: 0.6814 - val_loss: 349.8089 - val_rmse: 0.8266 - val_srcc: 0.5418
+Epoch 86/750
+Validation SRCC: 0.5451
+208/208 - 143s - 689ms/step - loss: 237.1842 - rmse: 0.6806 - val_loss: 330.9892 - val_rmse: 0.8040 - val_srcc: 0.5451
+Epoch 87/750
+Validation SRCC: 0.5469
+208/208 - 99s - 476ms/step - loss: 241.2159 - rmse: 0.6864 - val_loss: 316.3163 - val_rmse: 0.7860 - val_srcc: 0.5469
+Epoch 88/750
+Validation SRCC: 0.5449
+208/208 - 97s - 464ms/step - loss: 238.1516 - rmse: 0.6820 - val_loss: 335.2053 - val_rmse: 0.8091 - val_srcc: 0.5449
+Epoch 89/750
+Validation SRCC: 0.5518
+208/208 - 94s - 454ms/step - loss: 236.1728 - rmse: 0.6792 - val_loss: 367.2865 - val_rmse: 0.8470 - val_srcc: 0.5518
+Epoch 90/750
+Validation SRCC: 0.5417
+208/208 - 97s - 468ms/step - loss: 241.3228 - rmse: 0.6865 - val_loss: 332.2448 - val_rmse: 0.8056 - val_srcc: 0.5417
+Epoch 91/750
+Validation SRCC: 0.5503
+208/208 - 97s - 464ms/step - loss: 237.4037 - rmse: 0.6809 - val_loss: 329.1212 - val_rmse: 0.8018 - val_srcc: 0.5503
+Epoch 92/750
+Validation SRCC: 0.5442
+208/208 - 97s - 467ms/step - loss: 236.6156 - rmse: 0.6798 - val_loss: 338.4402 - val_rmse: 0.8130 - val_srcc: 0.5442
+Epoch 93/750
+Validation SRCC: 0.5538
+208/208 - 96s - 460ms/step - loss: 232.4707 - rmse: 0.6738 - val_loss: 321.9667 - val_rmse: 0.7930 - val_srcc: 0.5538
+Epoch 94/750
+Validation SRCC: 0.5526
+208/208 - 97s - 468ms/step - loss: 228.8059 - rmse: 0.6685 - val_loss: 327.2905 - val_rmse: 0.7995 - val_srcc: 0.5526
+Epoch 95/750
+Validation SRCC: 0.5521
+208/208 - 140s - 672ms/step - loss: 236.3662 - rmse: 0.6795 - val_loss: 356.4324 - val_rmse: 0.8344 - val_srcc: 0.5521
+Epoch 96/750
+Validation SRCC: 0.5576
+208/208 - 99s - 475ms/step - loss: 229.5794 - rmse: 0.6696 - val_loss: 345.3891 - val_rmse: 0.8213 - val_srcc: 0.5576
+Epoch 97/750
+Validation SRCC: 0.5571
+208/208 - 98s - 473ms/step - loss: 230.5247 - rmse: 0.6710 - val_loss: 354.6633 - val_rmse: 0.8323 - val_srcc: 0.5571
+Epoch 98/750
+Validation SRCC: 0.5392
+208/208 - 100s - 481ms/step - loss: 231.6616 - rmse: 0.6727 - val_loss: 339.1085 - val_rmse: 0.8138 - val_srcc: 0.5392
+Epoch 99/750
+Validation SRCC: 0.5641
+208/208 - 98s - 471ms/step - loss: 223.2258 - rmse: 0.6603 - val_loss: 312.7125 - val_rmse: 0.7815 - val_srcc: 0.5641
+Epoch 100/750
+Validation SRCC: 0.5624
+208/208 - 97s - 468ms/step - loss: 227.8752 - rmse: 0.6671 - val_loss: 325.2955 - val_rmse: 0.7971 - val_srcc: 0.5624
+Epoch 101/750
+Validation SRCC: 0.5636
+208/208 - 101s - 484ms/step - loss: 225.6924 - rmse: 0.6639 - val_loss: 351.7457 - val_rmse: 0.8289 - val_srcc: 0.5636
+Epoch 102/750
+Validation SRCC: 0.5735
+208/208 - 96s - 459ms/step - loss: 228.0216 - rmse: 0.6673 - val_loss: 334.4639 - val_rmse: 0.8082 - val_srcc: 0.5735
+Epoch 103/750
+Validation SRCC: 0.5708
+208/208 - 97s - 464ms/step - loss: 228.4030 - rmse: 0.6679 - val_loss: 328.3636 - val_rmse: 0.8008 - val_srcc: 0.5708
+Epoch 104/750
+Validation SRCC: 0.5703
+208/208 - 99s - 477ms/step - loss: 226.7385 - rmse: 0.6655 - val_loss: 325.8183 - val_rmse: 0.7977 - val_srcc: 0.5703
+Epoch 105/750
+Validation SRCC: 0.5687
+208/208 - 100s - 483ms/step - loss: 223.9697 - rmse: 0.6614 - val_loss: 347.6759 - val_rmse: 0.8240 - val_srcc: 0.5687
+Epoch 106/750
+Validation SRCC: 0.5693
+208/208 - 99s - 476ms/step - loss: 228.1355 - rmse: 0.6675 - val_loss: 316.1892 - val_rmse: 0.7858 - val_srcc: 0.5693
+Epoch 107/750
+Validation SRCC: 0.5713
+208/208 - 99s - 474ms/step - loss: 222.3280 - rmse: 0.6590 - val_loss: 330.1325 - val_rmse: 0.8030 - val_srcc: 0.5713
+Epoch 108/750
+Validation SRCC: 0.5718
+208/208 - 142s - 684ms/step - loss: 224.4617 - rmse: 0.6621 - val_loss: 341.9498 - val_rmse: 0.8172 - val_srcc: 0.5718
+Epoch 109/750
+Validation SRCC: 0.5715
+208/208 - 97s - 468ms/step - loss: 221.2923 - rmse: 0.6574 - val_loss: 312.6692 - val_rmse: 0.7815 - val_srcc: 0.5715
+Epoch 110/750
+Validation SRCC: 0.5730
+208/208 - 98s - 469ms/step - loss: 220.2328 - rmse: 0.6559 - val_loss: 333.2181 - val_rmse: 0.8067 - val_srcc: 0.5730
+Epoch 111/750
+Validation SRCC: 0.5668
+208/208 - 100s - 482ms/step - loss: 220.6326 - rmse: 0.6564 - val_loss: 316.6346 - val_rmse: 0.7864 - val_srcc: 0.5668
+Epoch 112/750
+Validation SRCC: 0.5811
+208/208 - 93s - 445ms/step - loss: 220.7289 - rmse: 0.6566 - val_loss: 360.2685 - val_rmse: 0.8388 - val_srcc: 0.5811
+Epoch 113/750
+Validation SRCC: 0.5716
+208/208 - 91s - 437ms/step - loss: 221.2769 - rmse: 0.6574 - val_loss: 320.3985 - val_rmse: 0.7911 - val_srcc: 0.5716
+Epoch 114/750
+Validation SRCC: 0.5707
+208/208 - 94s - 452ms/step - loss: 223.7114 - rmse: 0.6610 - val_loss: 324.0885 - val_rmse: 0.7956 - val_srcc: 0.5707
+Epoch 115/750
+Validation SRCC: 0.5761
+208/208 - 92s - 443ms/step - loss: 218.6284 - rmse: 0.6535 - val_loss: 360.4799 - val_rmse: 0.8391 - val_srcc: 0.5761
+Epoch 116/750
+Validation SRCC: 0.5790
+208/208 - 92s - 441ms/step - loss: 219.4006 - rmse: 0.6546 - val_loss: 359.8121 - val_rmse: 0.8383 - val_srcc: 0.5790
+Epoch 117/750
+Validation SRCC: 0.5802
+208/208 - 93s - 447ms/step - loss: 223.6238 - rmse: 0.6609 - val_loss: 322.7879 - val_rmse: 0.7940 - val_srcc: 0.5802
+Epoch 118/750
+Validation SRCC: 0.5760
+208/208 - 92s - 445ms/step - loss: 214.6166 - rmse: 0.6474 - val_loss: 324.4529 - val_rmse: 0.7961 - val_srcc: 0.5760
+Epoch 119/750
+Validation SRCC: 0.5828
+208/208 - 93s - 446ms/step - loss: 218.1646 - rmse: 0.6528 - val_loss: 330.4945 - val_rmse: 0.8034 - val_srcc: 0.5828
+Epoch 120/750
+Validation SRCC: 0.5836
+208/208 - 92s - 444ms/step - loss: 217.8860 - rmse: 0.6523 - val_loss: 315.2939 - val_rmse: 0.7847 - val_srcc: 0.5836
+Epoch 121/750
+Validation SRCC: 0.5882
+208/208 - 93s - 447ms/step - loss: 212.4007 - rmse: 0.6441 - val_loss: 313.4041 - val_rmse: 0.7824 - val_srcc: 0.5882
+Epoch 122/750
+Validation SRCC: 0.5854
+208/208 - 95s - 457ms/step - loss: 214.2270 - rmse: 0.6468 - val_loss: 311.9697 - val_rmse: 0.7806 - val_srcc: 0.5854
+Epoch 123/750
+Validation SRCC: 0.5834
+208/208 - 93s - 448ms/step - loss: 210.2970 - rmse: 0.6409 - val_loss: 336.4745 - val_rmse: 0.8107 - val_srcc: 0.5834
+Epoch 124/750
+Validation SRCC: 0.5849
+208/208 - 94s - 451ms/step - loss: 214.2458 - rmse: 0.6469 - val_loss: 325.4597 - val_rmse: 0.7973 - val_srcc: 0.5849
+Epoch 125/750
+Validation SRCC: 0.5747
+208/208 - 96s - 462ms/step - loss: 216.2270 - rmse: 0.6499 - val_loss: 323.5128 - val_rmse: 0.7949 - val_srcc: 0.5747
+Epoch 126/750
+Validation SRCC: 0.5851
+208/208 - 92s - 444ms/step - loss: 215.6739 - rmse: 0.6490 - val_loss: 310.5201 - val_rmse: 0.7788 - val_srcc: 0.5851
+Epoch 127/750
+Validation SRCC: 0.5871
+208/208 - 92s - 440ms/step - loss: 217.4754 - rmse: 0.6517 - val_loss: 316.7981 - val_rmse: 0.7866 - val_srcc: 0.5871
+Epoch 128/750
+2026-06-24 16:20:11.561505: I tensorflow/core/framework/local_rendezvous.cc:404] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validation SRCC: 0.5895
+208/208 - 144s - 694ms/step - loss: 216.7318 - rmse: 0.6506 - val_loss: 319.8404 - val_rmse: 0.7904 - val_srcc: 0.5895
+Epoch 129/750
+Validation SRCC: 0.5901
+208/208 - 96s - 461ms/step - loss: 210.4845 - rmse: 0.6412 - val_loss: 334.0988 - val_rmse: 0.8078 - val_srcc: 0.5901
+Epoch 130/750
+Validation SRCC: 0.5948
+208/208 - 93s - 449ms/step - loss: 210.9952 - rmse: 0.6420 - val_loss: 317.1281 - val_rmse: 0.7870 - val_srcc: 0.5948
+Epoch 131/750
+Validation SRCC: 0.5956
+208/208 - 100s - 479ms/step - loss: 208.6957 - rmse: 0.6384 - val_loss: 324.7758 - val_rmse: 0.7964 - val_srcc: 0.5956
+Epoch 132/750
+Validation SRCC: 0.5973
+208/208 - 93s - 449ms/step - loss: 207.7195 - rmse: 0.6369 - val_loss: 318.8336 - val_rmse: 0.7891 - val_srcc: 0.5973
+Epoch 133/750
+Validation SRCC: 0.5996
+208/208 - 96s - 461ms/step - loss: 207.1147 - rmse: 0.6360 - val_loss: 328.6669 - val_rmse: 0.8012 - val_srcc: 0.5996
+Epoch 134/750
+Validation SRCC: 0.6021
+208/208 - 93s - 447ms/step - loss: 205.2691 - rmse: 0.6332 - val_loss: 311.0845 - val_rmse: 0.7795 - val_srcc: 0.6021
+Epoch 135/750
+Validation SRCC: 0.6061
+208/208 - 94s - 451ms/step - loss: 207.5478 - rmse: 0.6367 - val_loss: 322.3056 - val_rmse: 0.7934 - val_srcc: 0.6061
+Epoch 136/750
+Validation SRCC: 0.5984
+208/208 - 95s - 456ms/step - loss: 206.0674 - rmse: 0.6344 - val_loss: 326.9337 - val_rmse: 0.7991 - val_srcc: 0.5984
+Epoch 137/750
+Validation SRCC: 0.6019
+208/208 - 93s - 445ms/step - loss: 204.9115 - rmse: 0.6326 - val_loss: 325.8818 - val_rmse: 0.7978 - val_srcc: 0.6019
+Epoch 138/750
+Validation SRCC: 0.6032
+208/208 - 94s - 452ms/step - loss: 201.7242 - rmse: 0.6277 - val_loss: 321.4840 - val_rmse: 0.7924 - val_srcc: 0.6032
+Epoch 139/750
+Validation SRCC: 0.5919
+208/208 - 96s - 462ms/step - loss: 202.3271 - rmse: 0.6286 - val_loss: 321.8024 - val_rmse: 0.7928 - val_srcc: 0.5919
+Epoch 140/750
+Validation SRCC: 0.5997
+208/208 - 92s - 443ms/step - loss: 200.7844 - rmse: 0.6262 - val_loss: 320.1452 - val_rmse: 0.7907 - val_srcc: 0.5997
+Epoch 141/750
+Validation SRCC: 0.6040
+208/208 - 93s - 447ms/step - loss: 202.4791 - rmse: 0.6289 - val_loss: 312.4937 - val_rmse: 0.7812 - val_srcc: 0.6040
+Epoch 142/750
+Validation SRCC: 0.5979
+208/208 - 90s - 434ms/step - loss: 198.4767 - rmse: 0.6226 - val_loss: 294.7017 - val_rmse: 0.7587 - val_srcc: 0.5979
+Epoch 143/750
+Validation SRCC: 0.5998
+208/208 - 93s - 447ms/step - loss: 194.9665 - rmse: 0.6171 - val_loss: 315.2363 - val_rmse: 0.7847 - val_srcc: 0.5998
+Epoch 144/750
+Validation SRCC: 0.6041
+208/208 - 92s - 440ms/step - loss: 204.0212 - rmse: 0.6313 - val_loss: 306.1190 - val_rmse: 0.7732 - val_srcc: 0.6041
+Epoch 145/750
+Validation SRCC: 0.6062
+208/208 - 92s - 441ms/step - loss: 200.3694 - rmse: 0.6256 - val_loss: 338.0494 - val_rmse: 0.8126 - val_srcc: 0.6062
+Epoch 146/750
+Validation SRCC: 0.6012
+208/208 - 91s - 438ms/step - loss: 196.3051 - rmse: 0.6192 - val_loss: 315.5026 - val_rmse: 0.7850 - val_srcc: 0.6012
+Epoch 147/750
+Validation SRCC: 0.6074
+208/208 - 94s - 450ms/step - loss: 197.4839 - rmse: 0.6211 - val_loss: 305.3279 - val_rmse: 0.7722 - val_srcc: 0.6074
+Epoch 148/750
+Validation SRCC: 0.6110
+208/208 - 91s - 439ms/step - loss: 197.6299 - rmse: 0.6213 - val_loss: 317.3980 - val_rmse: 0.7873 - val_srcc: 0.6110
+Epoch 149/750
+Validation SRCC: 0.6076
+208/208 - 91s - 439ms/step - loss: 194.6959 - rmse: 0.6167 - val_loss: 323.0515 - val_rmse: 0.7943 - val_srcc: 0.6076
+Epoch 150/750
+Validation SRCC: 0.6076
+208/208 - 91s - 440ms/step - loss: 200.2997 - rmse: 0.6255 - val_loss: 318.0137 - val_rmse: 0.7881 - val_srcc: 0.6076
+Epoch 151/750
+Validation SRCC: 0.6007
+208/208 - 91s - 439ms/step - loss: 197.0993 - rmse: 0.6205 - val_loss: 334.6248 - val_rmse: 0.8084 - val_srcc: 0.6007
+Epoch 152/750
+Validation SRCC: 0.6011
+208/208 - 94s - 453ms/step - loss: 193.7603 - rmse: 0.6152 - val_loss: 311.6010 - val_rmse: 0.7801 - val_srcc: 0.6011
+Epoch 153/750
+Validation SRCC: 0.6078
+208/208 - 140s - 672ms/step - loss: 191.8959 - rmse: 0.6122 - val_loss: 309.2525 - val_rmse: 0.7772 - val_srcc: 0.6078
+Epoch 154/750
+Validation SRCC: 0.6111
+208/208 - 93s - 445ms/step - loss: 193.7646 - rmse: 0.6152 - val_loss: 305.0628 - val_rmse: 0.7719 - val_srcc: 0.6111
+Epoch 155/750
+Validation SRCC: 0.6060
+208/208 - 93s - 446ms/step - loss: 191.9177 - rmse: 0.6122 - val_loss: 300.9146 - val_rmse: 0.7666 - val_srcc: 0.6060
+Epoch 156/750
+Validation SRCC: 0.6104
+208/208 - 92s - 441ms/step - loss: 190.0429 - rmse: 0.6092 - val_loss: 300.5278 - val_rmse: 0.7661 - val_srcc: 0.6104
+Epoch 157/750
+Validation SRCC: 0.6110
+208/208 - 92s - 444ms/step - loss: 189.4073 - rmse: 0.6082 - val_loss: 296.7296 - val_rmse: 0.7613 - val_srcc: 0.6110
+Epoch 158/750
+Validation SRCC: 0.6016
+208/208 - 94s - 451ms/step - loss: 190.6678 - rmse: 0.6102 - val_loss: 309.6316 - val_rmse: 0.7777 - val_srcc: 0.6016
+Epoch 159/750
+Validation SRCC: 0.6087
+208/208 - 92s - 441ms/step - loss: 190.2755 - rmse: 0.6096 - val_loss: 308.7985 - val_rmse: 0.7766 - val_srcc: 0.6087
+Epoch 160/750
+Validation SRCC: 0.6056
+208/208 - 93s - 445ms/step - loss: 187.2666 - rmse: 0.6048 - val_loss: 317.2504 - val_rmse: 0.7872 - val_srcc: 0.6056
+Epoch 161/750
+Validation SRCC: 0.6036
+208/208 - 93s - 448ms/step - loss: 189.4800 - rmse: 0.6083 - val_loss: 331.7730 - val_rmse: 0.8050 - val_srcc: 0.6036
+Epoch 162/750
+Validation SRCC: 0.6042
+208/208 - 93s - 447ms/step - loss: 188.8560 - rmse: 0.6073 - val_loss: 333.9457 - val_rmse: 0.8076 - val_srcc: 0.6042
+Epoch 163/750
+Validation SRCC: 0.6162
+208/208 - 94s - 450ms/step - loss: 187.7638 - rmse: 0.6056 - val_loss: 302.8456 - val_rmse: 0.7691 - val_srcc: 0.6162
+Epoch 164/750
+Validation SRCC: 0.6083
+208/208 - 94s - 452ms/step - loss: 186.0906 - rmse: 0.6029 - val_loss: 337.5582 - val_rmse: 0.8120 - val_srcc: 0.6083
+Epoch 165/750
+Validation SRCC: 0.6027
+208/208 - 96s - 461ms/step - loss: 191.8852 - rmse: 0.6122 - val_loss: 301.6022 - val_rmse: 0.7675 - val_srcc: 0.6027
+Epoch 166/750
+Validation SRCC: 0.6144
+208/208 - 92s - 444ms/step - loss: 187.8647 - rmse: 0.6057 - val_loss: 308.1142 - val_rmse: 0.7757 - val_srcc: 0.6144
+Epoch 167/750
+Validation SRCC: 0.6152
+208/208 - 92s - 441ms/step - loss: 189.8786 - rmse: 0.6090 - val_loss: 332.5234 - val_rmse: 0.8059 - val_srcc: 0.6152
+Epoch 168/750
+Validation SRCC: 0.6095
+208/208 - 92s - 444ms/step - loss: 185.0206 - rmse: 0.6011 - val_loss: 304.9545 - val_rmse: 0.7718 - val_srcc: 0.6095
+Epoch 169/750
+Validation SRCC: 0.6138
+208/208 - 143s - 688ms/step - loss: 182.3024 - rmse: 0.5967 - val_loss: 309.5692 - val_rmse: 0.7776 - val_srcc: 0.6138
+Epoch 170/750
+Validation SRCC: 0.6157
+208/208 - 142s - 683ms/step - loss: 184.4219 - rmse: 0.6002 - val_loss: 303.0785 - val_rmse: 0.7694 - val_srcc: 0.6157
+Epoch 171/750
+Validation SRCC: 0.6234
+208/208 - 99s - 477ms/step - loss: 183.6090 - rmse: 0.5988 - val_loss: 303.0836 - val_rmse: 0.7694 - val_srcc: 0.6234
+Epoch 172/750
+Validation SRCC: 0.6121
+208/208 - 99s - 477ms/step - loss: 181.0885 - rmse: 0.5947 - val_loss: 330.0889 - val_rmse: 0.8029 - val_srcc: 0.6121
+Epoch 173/750
+Validation SRCC: 0.6040
+208/208 - 95s - 455ms/step - loss: 186.9236 - rmse: 0.6042 - val_loss: 331.5014 - val_rmse: 0.8047 - val_srcc: 0.6040
+Epoch 174/750
+Validation SRCC: 0.6026
+208/208 - 94s - 452ms/step - loss: 183.6465 - rmse: 0.5989 - val_loss: 312.0994 - val_rmse: 0.7807 - val_srcc: 0.6026
+Epoch 175/750
+Validation SRCC: 0.6148
+208/208 - 95s - 456ms/step - loss: 182.8431 - rmse: 0.5976 - val_loss: 334.7447 - val_rmse: 0.8086 - val_srcc: 0.6148
+Epoch 176/750
+Validation SRCC: 0.6145
+208/208 - 93s - 447ms/step - loss: 183.3430 - rmse: 0.5984 - val_loss: 302.9160 - val_rmse: 0.7692 - val_srcc: 0.6145
+Epoch 177/750
+Validation SRCC: 0.6076
+208/208 - 96s - 461ms/step - loss: 183.0020 - rmse: 0.5979 - val_loss: 319.4571 - val_rmse: 0.7899 - val_srcc: 0.6076
+Epoch 178/750
+Validation SRCC: 0.6116
+208/208 - 95s - 458ms/step - loss: 183.2687 - rmse: 0.5983 - val_loss: 313.1891 - val_rmse: 0.7821 - val_srcc: 0.6116
+Epoch 179/750
+Validation SRCC: 0.6177
+208/208 - 95s - 457ms/step - loss: 182.5320 - rmse: 0.5971 - val_loss: 318.2113 - val_rmse: 0.7884 - val_srcc: 0.6177
+Epoch 180/750
+Validation SRCC: 0.6082
+208/208 - 94s - 454ms/step - loss: 183.6942 - rmse: 0.5990 - val_loss: 326.8796 - val_rmse: 0.7990 - val_srcc: 0.6082
+Epoch 181/750
+Validation SRCC: 0.6160
+208/208 - 98s - 471ms/step - loss: 187.3491 - rmse: 0.6049 - val_loss: 322.6718 - val_rmse: 0.7939 - val_srcc: 0.6160
+Epoch 182/750
+Validation SRCC: 0.6135
+208/208 - 96s - 460ms/step - loss: 179.0092 - rmse: 0.5913 - val_loss: 312.3241 - val_rmse: 0.7810 - val_srcc: 0.6135
+Epoch 183/750
+Validation SRCC: 0.6174
+208/208 - 93s - 446ms/step - loss: 179.8496 - rmse: 0.5927 - val_loss: 321.6263 - val_rmse: 0.7926 - val_srcc: 0.6174
+Epoch 184/750
+Validation SRCC: 0.6049
+208/208 - 145s - 698ms/step - loss: 180.1160 - rmse: 0.5931 - val_loss: 320.5226 - val_rmse: 0.7912 - val_srcc: 0.6049
+Epoch 185/750
+Validation SRCC: 0.6140
+208/208 - 139s - 670ms/step - loss: 182.0446 - rmse: 0.5963 - val_loss: 315.8940 - val_rmse: 0.7855 - val_srcc: 0.6140
+Epoch 186/750
+Validation SRCC: 0.6090
+208/208 - 95s - 455ms/step - loss: 180.2092 - rmse: 0.5933 - val_loss: 306.9527 - val_rmse: 0.7743 - val_srcc: 0.6090
+Epoch 187/750
+Validation SRCC: 0.6121
+208/208 - 98s - 470ms/step - loss: 181.3177 - rmse: 0.5951 - val_loss: 311.5064 - val_rmse: 0.7800 - val_srcc: 0.6121
+Epoch 188/750
+Validation SRCC: 0.6045
+208/208 - 96s - 463ms/step - loss: 179.6403 - rmse: 0.5923 - val_loss: 305.8713 - val_rmse: 0.7729 - val_srcc: 0.6045
+Epoch 189/750
+Validation SRCC: 0.6083
+208/208 - 97s - 464ms/step - loss: 176.2048 - rmse: 0.5866 - val_loss: 322.3923 - val_rmse: 0.7935 - val_srcc: 0.6083
+Epoch 190/750
+Validation SRCC: 0.6149
+208/208 - 98s - 470ms/step - loss: 179.0884 - rmse: 0.5914 - val_loss: 299.3789 - val_rmse: 0.7647 - val_srcc: 0.6149
+Epoch 191/750
+Validation SRCC: 0.6128
+208/208 - 97s - 467ms/step - loss: 174.3107 - rmse: 0.5835 - val_loss: 313.8865 - val_rmse: 0.7830 - val_srcc: 0.6128
+Epoch 192/750
+Validation SRCC: 0.6116
+208/208 - 96s - 464ms/step - loss: 172.6408 - rmse: 0.5807 - val_loss: 315.0386 - val_rmse: 0.7844 - val_srcc: 0.6116
+Epoch 193/750
+Validation SRCC: 0.6144
+208/208 - 98s - 470ms/step - loss: 172.6782 - rmse: 0.5807 - val_loss: 316.0229 - val_rmse: 0.7856 - val_srcc: 0.6144
+Epoch 194/750
+Validation SRCC: 0.6091
+208/208 - 96s - 463ms/step - loss: 176.0494 - rmse: 0.5864 - val_loss: 332.8658 - val_rmse: 0.8063 - val_srcc: 0.6091
+Epoch 195/750
+Validation SRCC: 0.6106
+208/208 - 98s - 470ms/step - loss: 176.4575 - rmse: 0.5871 - val_loss: 311.3261 - val_rmse: 0.7798 - val_srcc: 0.6106
+Epoch 196/750
+Validation SRCC: 0.6165
+208/208 - 97s - 466ms/step - loss: 173.9538 - rmse: 0.5829 - val_loss: 307.3026 - val_rmse: 0.7747 - val_srcc: 0.6165
+Epoch 196: early stopping
+Restoring model weights from the end of the best epoch: 171.
