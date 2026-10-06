@@ -1,5 +1,13 @@
 # AttentiveMOS
 
+<p align="center">
+  <img src="./AttentiveMOS.png" alt="AttentiveMOS architecture overview" width="900" />
+</p>
+
+<p>
+  <strong>Keywords:</strong> speech quality assessment, mean opinion score, no-reference speech quality estimation, swin-transformers, subjective bias.
+</p>
+
 AttentiveMOS is a lightweight (86K params) deep learning model for estimating subjective speech quality scores. It leverages attention-based mechanism to predict Mean Opinion Score (MOS). The model is trained on multiple speech quality datasets and can generalize across different domains.
 
 This repository contains the complete pipeline for data preparation, model training, and evaluation.
@@ -102,22 +110,24 @@ data_preparation/
 
 #### Preparation Steps
 
-**Run data preparation scripts** to generate TFDS:
-   - Navigate to the desired dataset directory 
-    Example:
-    ```bash
-    cd data_preparation/training_datasets/bvcc
-    ```
+Run the data preparation scripts to generate TFDS:
 
-   - Execute: 
-    ```bash
-    tfds build --data_dir=/path/to/desired/directory
-    ```
-    Example:
-    ```bash
-    tfds build --data_dir=Data/Speech/MOS_datasets/bvcc
-    ```
-   - The generated datasets will be in TensorFlow Datasets format
+1. Navigate to the desired dataset directory:
+   ```bash
+   cd data_preparation/training_datasets/bvcc
+   ```
+
+2. Execute the TensorFlow Datasets build command:
+   ```bash
+   tfds build --data_dir=/path/to/desired/directory
+   ```
+
+   Example:
+   ```bash
+   tfds build --data_dir=Data/Speech/MOS_datasets/bvcc
+   ```
+
+The generated datasets will be in TensorFlow Datasets format.
 
 ## 2. Training
 
@@ -178,19 +188,6 @@ The `test.sh` script includes SLURM configuration for:
 - **Predictions**: Model predictions on test datasets
 - **Metrics**: Correlation coefficients (Pearson, Spearman)
 - **Analysis results**: Saved in `evaluation/seeds/999` directory
-
-## Model Architecture
-
-The AttentiveMOS model incorporates attention mechanisms to capture important features in speech audio for quality assessment. 
-
-For architecture details, refer to:
-- [Architecture Diagram](./AttentiveMOS.png)
-- Model implementation: `data_modeling/model.py`
-- Callbacks and training utilities: `data_modeling/callbacks.py`
-
-## Research Paper
-
-For comprehensive details on the methodology, experiments, and results, please refer to the research paper (./Interspeech25_Paper.pdf) included in this repository.
 
 ## Project Structure
 
